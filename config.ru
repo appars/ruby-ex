@@ -7,6 +7,13 @@ map '/health' do
   run health
 end
 
+map '/gcdo' do
+  health = proc do |env|
+    [200, { "Content-Type" => "text/html" }, ["***Welcome to Monorepo***"]]
+  end
+  run health
+end
+
 map '/lobster' do
   run Rack::Lobster.new
 end
